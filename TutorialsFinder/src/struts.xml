@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+
+  
+<struts>  
+<include file="login.xml"/>
+
+<package name="default"  namespace="/Tutorials"   extends="struts-default">
+   <action name="*" class="org.sk.action.TutorialAction" method="{1}">
+        <result name="success">/success.jsp</result>
+         <result name="failure">/error.jsp</result>
+   </action>
+ </package>  
+<!-- <package name="default"  namespace="/Tutorials"   extends="struts-default">
+   <action name="getTutorial" class="org.sk.action.TutorialAction">
+   <action name="get*" class="org.sk.action.{1}Action">
+     <result name="success">/success.jsp</result>
+     <result name="failure">/error.jsp</result>
+   </action>
+</package> -->
+
+<package name="search"  namespace="/"   extends="struts-default">
+   <!-- <action name="search*"> 
+     <result>/searchForm.jsp</result>
+    </action>
+    <action name="search*"> 
+     <result>/searchTutorial.jsp</result>
+    </action>    {1} for one wildcard-->
+    
+    <action name="search*"> 
+     <result>/search{1}.jsp</result>
+    </action>
+    
+    
+</package>
+
+</struts>
